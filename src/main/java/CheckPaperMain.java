@@ -1,3 +1,4 @@
+import cos.CosineSimilarity;
 import sim.SimHash;
 import sim.formula;
 
@@ -36,5 +37,8 @@ public class CheckPaperMain {
         int d = hash1.hammingDistance(hash2);
         System.out.println(d);
         System.out.println(formula.getSimliar(d));
+
+        double ans = CosineSimilarity.getSimilarity(text1, text2);
+        System.out.println(ans);
     }
 }

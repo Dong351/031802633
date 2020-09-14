@@ -32,13 +32,22 @@ public class CheckPaperMain {
         in1.close();
         in2.close();
 
-        SimHash hash1 = new SimHash(text1,64);
-        SimHash hash2 = new SimHash(text2,64);
-        int d = hash1.hammingDistance(hash2);
-        System.out.println(d);
-        System.out.println(formula.getSimliar(d));
+        if(text1.length() == 0 || text2.length() == 0){
+            throw new CommonException("文本为空");
+        }
 
-        double ans = CosineSimilarity.getSimilarity(text1, text2);
-        System.out.println(ans);
+        if(text1.length() > 1000){
+            SimHash hash1 = new SimHash(text1,64);
+            SimHash hash2 = new SimHash(text2,64);
+            int d = hash1.hammingDistance(hash2);
+            System.out.println(d);
+            System.out.println(formula.getSimliar(d));
+        }
+        else {
+            double ans = CosineSimilarity.getSimilarity(text1, text2);
+            System.out.println(ans);
+        }
+
+
     }
 }

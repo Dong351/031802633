@@ -31,4 +31,10 @@ public class DevTest {
         String s1 = String.valueOf(s);
         System.out.println(s1);
     }
+
+    @Test
+    public void stringTest(){
+        String test = "你好世界";
+        System.out.println(test.length());
+    }
 }

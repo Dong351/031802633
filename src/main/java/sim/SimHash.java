@@ -6,9 +6,7 @@ import org.wltea.analyzer.core.Lexeme;
 import java.io.IOException;
 import java.io.StringReader;
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class SimHash {
 
@@ -69,7 +67,7 @@ public class SimHash {
             }
         }
         this.strSimHash = simHashBuffer.toString();
-        System.out.println(this.strSimHash + " length " + this.strSimHash.length());
+//        System.out.println(this.strSimHash + " length " + this.strSimHash.length());
         return fingerprint;
     }
 
@@ -109,48 +107,6 @@ public class SimHash {
         return tot;
     }
 
-    public int getDistance(String str1, String str2) {
-        int distance;
-        if (str1.length() != str2.length()) {
-            distance = -1;
-        } else {
-            distance = 0;
-            for (int i = 0; i < str1.length(); i++) {
-                if (str1.charAt(i) != str2.charAt(i)) {
-                    distance++;
-                }
-            }
-        }
-        return distance;
-    }
 
-    public List subByDistance(SimHash simHash, int distance) {
-        // 分成几组来检查
-        int numEach = this.hashbits / (distance + 1);
-        List characters = new ArrayList();
 
-        StringBuffer buffer = new StringBuffer();
-
-        int k = 0;
-        for (int i = 0; i < this.intSimHash.bitLength(); i++) {
-            // 当且仅当设置了指定的位时，返回 true
-            boolean sr = simHash.intSimHash.testBit(i);
-
-            if (sr) {
-                buffer.append("1");
-            } else {
-                buffer.append("0");
-            }
-
-            if ((i + 1) % numEach == 0) {
-                // 将二进制转为BigInteger
-                BigInteger eachValue = new BigInteger(buffer.toString(), 2);
-                System.out.println("----" + eachValue);
-                buffer.delete(0, buffer.length());
-                characters.add(eachValue);
-            }
-        }
-
-        return characters;
-    }
 }

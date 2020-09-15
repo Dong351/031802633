@@ -1,5 +1,6 @@
 import org.junit.Test;
 import sim.SimHash;
+import sim.formula;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -9,7 +10,10 @@ public class DevTest {
 
     @Test
     public void SimHashTest() throws IOException {
-        SimHash simHash = new SimHash("你好");
+        SimHash t1 = new SimHash("福大今天真不错");
+        SimHash t2 = new SimHash("福大今天真美丽");
+        int i = t1.hammingDistance(t2);
+        System.out.println(formula.getSimliar(i));
     }
 
     @Test

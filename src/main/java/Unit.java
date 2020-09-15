@@ -5,7 +5,7 @@ import sim.formula;
 import java.io.*;
 
 public class Unit {
-    static void ans(String path1,String path2) throws IOException {
+    static double ans(String path1, String path2) throws IOException {
         //        路径指定
         String filePath = path1;
         String comparePath = path2;
@@ -45,7 +45,7 @@ public class Unit {
              ans = CosineSimilarity.getSimilarity(text1, text2);
         }
         System.out.println(ans);
-
+        return ans;
 
     }
 }
